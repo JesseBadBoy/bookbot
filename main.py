@@ -3,10 +3,13 @@ def main():
     text=get_text(book_path)
     num_words=word_count(text)
     letter_count=char_count(text)
+    
 
     #print (text)
-    print(f"{num_words} words found")
-    print(letter_count)
+    print(f"--- Begin report of {book_path} ---")
+    print(f"{num_words} words found in the document\n")
+    print_report(letter_count)
+    print("\n--- End report ---")
     return
 
 #opens the text and returns it
@@ -34,7 +37,12 @@ def char_count(text):
 
     return count_dict
 
-
+#uses the letter count dictionary to
+def print_report(letter_count):
+    for x in letter_count:
+        if x.isalpha() == True:
+            print(f"the '{x}' character was found {letter_count[x]} times")
+    return
 
 
 
